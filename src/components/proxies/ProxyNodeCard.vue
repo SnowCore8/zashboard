@@ -22,7 +22,7 @@
         :class="twMerge('text-sm', truncateProxyName && 'truncate')"
         @mouseenter="checkTruncation"
       >
-        {{ node.name }}
+        {{ replaceEmoji(node.name) }}
       </span>
     </div>
 
@@ -47,7 +47,7 @@
 <script setup lang="ts">
 import { PROXY_CARD_SIZE, PROXY_SORT_TYPE } from '@/constant'
 import { checkTruncation } from '@/helper/tooltip'
-import { scrollIntoCenter } from '@/helper/utils'
+import { replaceEmoji, scrollIntoCenter } from '@/helper/utils'
 import { i18n } from '@/i18n'
 import { getIPv6ByName, getTestUrl, proxyLatencyTest, proxyMap } from '@/store/proxies'
 import { IPv6test, proxyCardSize, proxySortType, truncateProxyName } from '@/store/settings'

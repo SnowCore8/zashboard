@@ -9,11 +9,12 @@
       :size="iconSizeComputed"
       :margin="iconMarginComputed"
     />
-    {{ name }}
+    {{ renderName }}
   </div>
 </template>
 
 <script setup lang="ts">
+import { replaceEmoji } from '@/helper/utils'
 import { proxyMap } from '@/store/proxies'
 import { proxyGroupIconMargin, proxyGroupIconSize } from '@/store/settings'
 import { computed } from 'vue'
@@ -42,5 +43,9 @@ const iconMarginComputed = computed(() => {
 
 const icon = computed(() => {
   return proxyMap.value[props.name]?.icon
+})
+
+const renderName = computed(() => {
+  return replaceEmoji(props.name)
 })
 </script>

@@ -88,3 +88,12 @@ const findScrollableParent = (el: HTMLElement | null): HTMLElement | null => {
 
   return parent ? findScrollableParent(parent) : null
 }
+
+const isApplePlatform = /Mac|iPod|iPhone|iPad/.test(navigator.platform)
+
+export const replaceEmoji = (name: string) => {
+  if (isApplePlatform) {
+    return name.replace('🇹🇼', '🇼🇸')
+  }
+  return name
+}
